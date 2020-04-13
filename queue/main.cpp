@@ -136,3 +136,4 @@ int main()
 	cout << ochered.pop() << endl;
 	cout << ochered.pop() << endl;
 	return 0;
+}
