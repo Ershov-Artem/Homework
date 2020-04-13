@@ -1,16 +1,25 @@
 #include <iostream>
 
 using namespace std;
-int dp(int a, int b){
-    if (a == 1 && b == 1)
-        return 1;
-    if (a < 0 || b < 0)
-        return 0;
-    return (dp(a - 1, b - 2) + dp(a - 2, b - 1));
-}
+
 int main()
 {
-    int n, m;
+    int n, m,i,j;
     cin >> n >> m;
-    cout << dp(n, m);
+   int  dp[m][n];
+    for (i = 0;i < m;i++){
+    for (j = 0;j< n;j++){
+        dp[i][j] = 0;
+    }
+    }
+    dp[0][0]= 1;
+    dp[2][1]=1;
+    dp[1][2]=1;
+     for (i = 2;i < m;i++){
+     for (j = 2;j < n;j++){
+            dp[i][j] = dp[i - 2][j - 1]+dp[i - 1][j - 2];
+        }
+     }
+
+    cout << dp[m-1][n-1];
 }
