@@ -6,20 +6,20 @@ int main()
 {
     long long n;
     cin >> n;
-    vector<vector<long long>> time(n, vector<long long>(2));
+    vector<vector<long long>> timeTable(n, vector<long long>(2));
     long long max = 0;
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < 2; j++)
         {
-            cin >> time[i][j];
+            cin >> timeTable[i][j];
         }
     }
     for (int i = 0; i < n; i++)
     {
-        if (max < time[i][1])
+        if (max < timeTable[i][1])
         {
-            max = time[i][1];
+            max = timeTable[i][1];
             //maxIndex = i;
         }
     }
@@ -32,8 +32,8 @@ int main()
     for (int i = 0; i < n; i++)
     {
 
-        room[time[i][0]]++;
-        room[time[i][1]]--;
+        room[timeTable[i][0]]++;
+        room[timeTable[i][1]]--;
     }
     long long auditories = 0;
     int maxVal = 0;
@@ -45,6 +45,6 @@ int main()
                 maxVal = auditories;
             }
     }
-    cout << auditories << endl;
+    cout << maxVal << endl;
     return 0;
 }
